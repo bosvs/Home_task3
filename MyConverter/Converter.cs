@@ -1,34 +1,31 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyConverter
+﻿public class Converter
 {
-    internal class Converter
+    public decimal UsdRate { get; }
+    public decimal EurRate { get; }
+
+    public Converter(decimal usdRate, decimal eurRate)
     {
-        public const decimal DollarRate = 41.2072m;
-        public const decimal EuroRate = 45.0477m;
+        UsdRate = usdRate;
+        EurRate = eurRate;
+    }
 
-        public decimal ConvertToDollars(decimal amountInHryvnia)
-        {
-            return amountInHryvnia / DollarRate;
-        }
+    public decimal ConvertFromUahToUsd(decimal amountInUah)
+    {
+        return amountInUah / UsdRate;
+    }
 
-        public decimal ConvertToEuros(decimal amountInHryvnia)
-        {
-            return amountInHryvnia / EuroRate;
-        }
+    public decimal ConvertFromUahToEur(decimal amountInUah)
+    {
+        return amountInUah / EurRate;
+    }
 
-        public decimal ConvertFromDollars(decimal amountInDollars)
-        {
-            return amountInDollars * DollarRate;
-        }
+    public decimal ConvertFromUsdToUah(decimal amountInUsd)
+    {
+        return amountInUsd * UsdRate;
+    }
 
-        public decimal ConvertFromEuros(decimal amountInEuros)
-        {
-            return amountInEuros * EuroRate;
-        }
+    public decimal ConvertFromEurToUah(decimal amountInEur)
+    {
+        return amountInEur * EurRate;
     }
 }
